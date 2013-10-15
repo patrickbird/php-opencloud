@@ -167,6 +167,30 @@ class Service extends Nova
         return $this->collection('OpenCloud\Compute\Network');
     }
 
+	/**
+	 * Returns a hypervisor object
+	 *
+	 * @api
+	 * @param string $id the hypervisor ID
+	 * @return Compute\Hypervisor
+	 */
+    public function hypervisor($id = null)
+	{
+		return new Hypervisor($this, $id);
+	}
+
+    /**
+     * Return a Collection of Hypervisor objects
+	 *
+	 * @api
+	 * @param array $filters array of filter key/value pairs
+	 * @return Collection
+	 */
+	public function hypervisorList($filter = array())
+	{
+		return $this->collection('OpenCloud\Compute\Hypervisor');
+	}
+
     /**
      * Returns an image from the service
      *
